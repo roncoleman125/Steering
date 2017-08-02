@@ -58,5 +58,5 @@ public class Predator extends Vehicle {
             
         this.SetMaxSpeed(70);        
     }
-    
+        
 }

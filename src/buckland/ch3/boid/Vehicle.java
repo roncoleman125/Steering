@@ -14,6 +14,10 @@ import static buckland.ch3.common.D2.Vector2D.*;
 import static buckland.ch3.common.misc.Cgdi.gdi;
 import static buckland.ch3.ParamLoader.Prm;
 import static buckland.ch3.common.D2.Transformation.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 abstract public class Vehicle extends MovingEntity {
 
@@ -87,12 +91,11 @@ abstract public class Vehicle extends MovingEntity {
         m_dTimeElapsed = 0.0;
         InitializeBuffer();
 
-        //set up the steering behavior class
-        m_pSteering = new SteeringBehavior(this);
+        m_pSteering = Steering.GetInstance(this);
+//        m_pSteering = new SteeringBehavior(this);
 
         //set up the smoother
         m_pHeadingSmoother = new SmootherV2<Vector2D>(Prm.NumSamplesForSmoothing, new Vector2D(0.0, 0.0));
-
     }
 
     @Override

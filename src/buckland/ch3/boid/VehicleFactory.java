@@ -58,7 +58,7 @@ public class VehicleFactory {
             Logger.getLogger(GameWorld.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String className = Prm.PreyClassName;
+        String className = Prm.PreyClass;
         
         // Reflectively create a prey
         // See http://bit.ly/2eWDKYT
@@ -103,7 +103,7 @@ public class VehicleFactory {
             Logger.getLogger(GameWorld.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String className = Prm.PredatorClassName;
+        String className = Prm.PredatorClass;
 
         Class<Vehicle> clazz;
         try {

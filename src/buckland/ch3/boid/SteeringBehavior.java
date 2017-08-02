@@ -45,7 +45,7 @@ public class SteeringBehavior {
         }
     }
 
-    private enum behavior_type {
+    public enum behavior_type {
 
         none(0x00000),
         seek(0x00002),
@@ -63,7 +63,8 @@ public class SteeringBehavior {
         interpose(0x02000),
         hide(0x04000),
         flock(0x08000),
-        offset_pursuit(0x10000);
+        offset_pursuit(0x10000),
+        hunt(0x20000);
         private final int flag;
 
         behavior_type(int flag) {
@@ -132,7 +133,7 @@ public class SteeringBehavior {
 
     //Arrive makes use of these to determine how quickly a vehicle
     //should decelerate to its target
-    private enum Deceleration {
+    public enum Deceleration {
 
         slow(3), normal(2), fast(1);
         private final int dec;
@@ -146,14 +147,14 @@ public class SteeringBehavior {
         }
     }
     //default
-    private Deceleration m_Deceleration;
+    private final Deceleration m_Deceleration;
     //is cell space partitioning to be used or not?
     private boolean m_bCellSpaceOn;
     //what type of method is used to sum any active behavior
-    private summing_method m_SummingMethod;
+    protected summing_method m_SummingMethod;
 
     //this function tests if a specific bit of m_iFlags is set
-    private boolean On(behavior_type bt) {
+    protected boolean On(behavior_type bt) {
         return (m_iFlags & bt.flag()) == bt.flag();
     }
 
@@ -1269,7 +1270,7 @@ public class SteeringBehavior {
      *  is reached, at which time the function returns the steering force 
      *  accumulated to that  point
      */
-    private Vector2D CalculatePrioritized() {
+    protected Vector2D CalculatePrioritized() {
         Vector2D force = new Vector2D();
 
         if (On(behavior_type.wall_avoidance)) {
@@ -1463,7 +1464,7 @@ public class SteeringBehavior {
      *  truncates the result to the max available steering force before 
      *  returning
      */
-    private Vector2D CalculateWeightedSum() {
+    protected Vector2D CalculateWeightedSum() {
         if (On(behavior_type.wall_avoidance)) {
             m_vSteeringForce.add(mul(WallAvoidance(m_pVehicle.World().Walls()),
                     m_dWeightWallAvoidance));
@@ -1571,7 +1572,7 @@ public class SteeringBehavior {
      *  NOTE: Not all of the behaviors have been implemented in this method,
      *        just a few, so you get the general idea
      */
-    private Vector2D CalculateDithered() {
+    protected Vector2D CalculateDithered() {
         //reset the steering force
         m_vSteeringForce.Zero();
 
@@ -1769,6 +1770,10 @@ public class SteeringBehavior {
         m_SummingMethod = sm;
     }
 
+    public void HuntOn() {
+        m_iFlags |= behavior_type.hunt.flag();
+    }
+    
     public void FleeOn() {
         m_iFlags |= behavior_type.flee.flag();
     }
@@ -1845,6 +1850,12 @@ public class SteeringBehavior {
         WanderOn();
     }
 
+    public void HuntOff() {
+        if (On(behavior_type.hunt)) {
+            m_iFlags ^= behavior_type.hunt.flag();
+        }        
+    }
+    
     public void FleeOff() {
         if (On(behavior_type.flee)) {
             m_iFlags ^= behavior_type.flee.flag();

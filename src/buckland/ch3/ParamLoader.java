@@ -24,12 +24,13 @@ public class ParamLoader extends iniFileLoaderBase {
 
     private ParamLoader() throws IOException {
         super(ParamLoader.class.getResource("params.ini"));
+        SteeringBehaviorClass = GetNextParameterString();
         NumPrey = GetNextParameterInt();
         PreyScale = GetNextParameterInt();
-        PreyClassName = GetNextParameterString();
+        PreyClass = GetNextParameterString();
         NumPredators = GetNextParameterInt();
         PredatorScale = GetNextParameterInt();
-        PredatorClassName = GetNextParameterString();
+        PredatorClass = GetNextParameterString();
         NumObstacles = GetNextParameterInt();
         MinObstacleRadius = GetNextParameterFloat();
         MaxObstacleRadius = GetNextParameterFloat();
@@ -79,12 +80,13 @@ public class ParamLoader extends iniFileLoaderBase {
 
         MaxTurnRatePerSecond = buckland.ch3.common.misc.utils.Pi;
     }
+    public String SteeringBehaviorClass;
     public int NumPrey;
     public int PreyScale;
-    public String PreyClassName;
+    public String PreyClass;
     public int NumPredators;
     public int PredatorScale;
-    public String PredatorClassName;
+    public String PredatorClass;
     public int NumObstacles;
     public double MinObstacleRadius;
     public double MaxObstacleRadius;
