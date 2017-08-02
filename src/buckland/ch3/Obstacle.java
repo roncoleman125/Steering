@@ -5,7 +5,7 @@
  */
 package buckland.ch3;
 
-import buckland.ch3.BaseGameEntity;
+import buckland.ch3.boid.BaseGameEntity;
 import java.io.PrintStream;
 import java.io.OutputStream;
 import java.util.Scanner;
@@ -13,7 +13,7 @@ import buckland.ch3.common.D2.Vector2D;
 import java.io.InputStream;
 import static buckland.ch3.common.misc.Cgdi.gdi;
 
-class Obstacle extends BaseGameEntity {
+public class Obstacle extends BaseGameEntity {
 
     public Obstacle(double x,
             double y,

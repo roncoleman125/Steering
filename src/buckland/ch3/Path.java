@@ -15,7 +15,7 @@ import static java.lang.Math.*;
 import static buckland.ch3.common.D2.Transformation.*;
 import static buckland.ch3.common.misc.Cgdi.gdi;
 
-class Path {
+public class Path {
     
     private List<Vector2D> m_WayPoints = new LinkedList<Vector2D>();
     //points to the current waypoint

@@ -1,9 +1,31 @@
-/**
- * Base class for a game object
- * 
- * @author Petr (http://www.sallyx.org/)
- */
-package buckland.ch3;
+/*
+Excluding parts with their own licences, all source code are distributed
+with MIT License:
+
+Copyright (c) <2012> <Petr Bilek, http://www.sallyx.org/game-ai/>
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+*/
+package buckland.ch3.boid;
 
 import java.io.InputStream;
 import buckland.ch3.common.D2.Vector2D;
@@ -114,15 +136,15 @@ public abstract class BaseGameEntity {
         return new Vector2D(m_vPos);
     }
 
-    void SetPos(Vector2D new_pos) {
+    public void SetPos(Vector2D new_pos) {
         m_vPos = new Vector2D(new_pos);
     }
 
-    double BRadius() {
+    public double BRadius() {
         return m_dBoundingRadius;
     }
 
-    void SetBRadius(double r) {
+    public void SetBRadius(double r) {
         m_dBoundingRadius = r;
     }
 
@@ -130,37 +152,37 @@ public abstract class BaseGameEntity {
         return m_ID;
     }
 
-    boolean IsTagged() {
+    public boolean IsTagged() {
         return m_bTag;
     }
 
-    void Tag() {
+    public void Tag() {
         m_bTag = true;
     }
 
-    void UnTag() {
+    public void UnTag() {
         m_bTag = false;
     }
 
-    Vector2D Scale() {
+    public Vector2D Scale() {
         return new Vector2D(m_vScale);
     }
 
-    void SetScale(Vector2D val) {
+    public void SetScale(Vector2D val) {
         m_dBoundingRadius *= MaxOf(val.x, val.y) / MaxOf(m_vScale.x, m_vScale.y);
         m_vScale = new Vector2D(val);
     }
 
-    void SetScale(double val) {
+    public void SetScale(double val) {
         m_dBoundingRadius *= (val / MaxOf(m_vScale.x, m_vScale.y));
         m_vScale = new Vector2D(val, val);
     }
 
-    int EntityType() {
+    public int EntityType() {
         return m_EntityType;
     }
 
-    void SetEntityType(int new_type) {
+    public void SetEntityType(int new_type) {
         m_EntityType = new_type;
     }
 }

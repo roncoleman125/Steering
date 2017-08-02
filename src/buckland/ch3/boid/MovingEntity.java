@@ -5,9 +5,9 @@
  * 
  * @author Petr (http://www.sallyx.org/)
  */
-package buckland.ch3;
+package buckland.ch3.boid;
 
-import buckland.ch3.BaseGameEntity;
+import buckland.ch3.boid.BaseGameEntity;
 import buckland.ch3.common.D2.Vector2D;
 import buckland.ch3.common.D2.C2DMatrix;
 import static buckland.ch3.common.D2.Vector2D.*;

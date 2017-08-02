@@ -20,8 +20,9 @@
  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package buckland.ch3;
+package buckland.ch3.boid;
 
+import buckland.ch3.GameWorld;
 import static buckland.ch3.ParamLoader.Prm;
 import buckland.ch3.common.D2.Vector2D;
 import java.lang.reflect.Constructor;

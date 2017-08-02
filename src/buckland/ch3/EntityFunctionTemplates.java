@@ -5,7 +5,7 @@
  */
 package buckland.ch3;
 
-import buckland.ch3.BaseGameEntity;
+import buckland.ch3.boid.BaseGameEntity;
 import java.util.LinkedList;
 import buckland.ch3.common.D2.Vector2D;
 import java.util.List;

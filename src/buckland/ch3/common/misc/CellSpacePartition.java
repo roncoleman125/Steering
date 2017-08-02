@@ -13,7 +13,7 @@
 package buckland.ch3.common.misc;
 
 //------------------------------------------------------------------------
-import buckland.ch3.BaseGameEntity;
+import buckland.ch3.boid.BaseGameEntity;
 import buckland.ch3.common.D2.InvertedAABBox2D;
 import buckland.ch3.common.D2.Vector2D;
 import java.util.ArrayList;

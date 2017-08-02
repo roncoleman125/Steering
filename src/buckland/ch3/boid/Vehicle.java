@@ -3,8 +3,9 @@
  * 
  * @author Petr (http://www.sallyx.org/)
  */
-package buckland.ch3;
+package buckland.ch3.boid;
 
+import buckland.ch3.GameWorld;
 import java.util.ArrayList;
 import buckland.ch3.common.misc.SmootherV2;
 import buckland.ch3.common.D2.Vector2D;

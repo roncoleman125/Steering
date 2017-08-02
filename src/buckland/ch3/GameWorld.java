@@ -9,6 +9,10 @@
 package buckland.ch3;
 
 //------------------------------------------------------------------------
+import buckland.ch3.boid.BaseGameEntity;
+import buckland.ch3.boid.VehicleFactory;
+import buckland.ch3.boid.Vehicle;
+import buckland.ch3.boid.SteeringBehavior;
 import buckland.ch3.common.D2.InvertedAABBox2D;
 import java.awt.event.KeyEvent;
 import buckland.ch3.common.misc.Cgdi;
@@ -29,7 +33,7 @@ import static buckland.ch3.common.misc.Cgdi.*;
 import static buckland.ch3.resource.*;
 import static buckland.ch3.common.misc.WindowUtils.*;
 import static buckland.ch3.common.misc.Stream_Utility_function.ttos;
-import static buckland.ch3.SteeringBehavior.summing_method;
+import static buckland.ch3.boid.SteeringBehavior.summing_method;
 
 
 public final class GameWorld {

@@ -3,9 +3,9 @@
  * 
  * @author Petr (http://www.sallyx.org/)
  */
-package buckland.ch3;
+package buckland.ch3.boid;
 
-import buckland.ch3.BaseGameEntity;
+import buckland.ch3.Path;
 import static buckland.ch3.ParamLoader.Prm;
 import buckland.ch3.common.D2.Vector2D;
 import static buckland.ch3.common.D2.Vector2D.*;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-class SteeringBehavior {
+public class SteeringBehavior {
 //--------------------------- Constants ----------------------------------
     //the radius of the constraining circle for the wander behavior
 

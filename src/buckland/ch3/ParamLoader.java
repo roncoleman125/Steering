@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class ParamLoader extends iniFileLoaderBase {
 
-    final static ParamLoader Prm;
+    public final static ParamLoader Prm;
 
     static {
         try {
