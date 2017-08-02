@@ -91,7 +91,7 @@ abstract public class Vehicle extends MovingEntity {
         m_dTimeElapsed = 0.0;
         InitializeBuffer();
 
-        m_pSteering = Steering.GetInstance(this);
+        m_pSteering = SteeringFactory.GetInstance(this);
 //        m_pSteering = new SteeringBehavior(this);
 
         //set up the smoother
