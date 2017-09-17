@@ -14,31 +14,27 @@ import static buckland.ch3.common.D2.Vector2D.*;
 import static buckland.ch3.common.misc.Cgdi.gdi;
 import static buckland.ch3.ParamLoader.Prm;
 import static buckland.ch3.common.D2.Transformation.*;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 abstract public class Vehicle extends MovingEntity {
 
     //a pointer to the world data. So a vehicle can access any obstacle,
     //path, wall or agent data
-    private GameWorld m_pWorld;
+    protected GameWorld m_pWorld;
     //the steering behavior class
-    private SteeringBehavior m_pSteering;
+    protected SteeringBehavior m_pSteering;
     //some steering behaviors give jerky looking movement. The
     //following members are used to smooth the vehicle's heading
-    private SmootherV2<Vector2D> m_pHeadingSmoother;
+    protected SmootherV2<Vector2D> m_pHeadingSmoother;
     //this vector represents the average of the vehicle's heading
     //vector smoothed over the last few frames
-    private Vector2D m_vSmoothedHeading;
+    protected Vector2D m_vSmoothedHeading;
     //when true, smoothing is active
-    private boolean m_bSmoothingOn;
+    protected boolean m_bSmoothingOn;
     //keeps a track of the most recent update time. (some of the
     //steering behaviors make use of this - see Wander)
-    private double m_dTimeElapsed;
+    protected double m_dTimeElapsed;
     //buffer for the vehicle shape
-    private List<Vector2D> m_vecVehicleVB = new ArrayList<Vector2D>();
+    protected List<Vector2D> m_vecVehicleVB = new ArrayList<Vector2D>();
 
     /**
      *  fills the vehicle's shape buffer with its vertices
