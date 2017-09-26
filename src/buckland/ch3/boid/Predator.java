@@ -44,10 +44,10 @@ public class Predator extends Vehicle {
               Prm.MaxTurnRatePerSecond, //max turn rate
               Prm.VehicleScale);
         
-        init();
+        Init();
     }
     
-    protected final void init() {
+    protected final void Init() {
         this.Steering().FlockingOff();
    
         int scale = Prm.PredatorScale;

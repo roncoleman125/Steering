@@ -45,10 +45,10 @@ public class Prey extends Vehicle {
               Prm.MaxTurnRatePerSecond, //max turn rate
               Prm.VehicleScale);
         
-        init();
+        Init();
     }
     
-    protected final void init() {
+    protected final void Init() {
         this.Steering().FlockingOn();
         
         int scale = Prm.PreyScale;
