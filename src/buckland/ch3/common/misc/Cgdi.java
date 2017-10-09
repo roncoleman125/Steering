@@ -637,4 +637,13 @@ public class Cgdi {
                 return;
         }//end switch
     }
+    
+    /**
+     * Gets the graphics context in case we need to draw uniquely.
+     * @author R.Coleman
+     * @return Graphics context
+     */
+    public Graphics2D GetHdc() {
+        return m_hdc;
+    }
 }

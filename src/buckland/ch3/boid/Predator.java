@@ -29,24 +29,32 @@ import static buckland.ch3.common.misc.utils.RandFloat;
 import static buckland.ch3.common.misc.utils.TwoPi;
 
 /**
- * This class implement basic predator as vehicle found in Buckland (2005)
+ * This class implements a basic predator as vehicle found in Buckland (2005)
  * @author Ron Coleman
  */
 public class Predator extends Vehicle {
+    /**
+     * Constructor
+     * @param spawnPos Agent spawn position.
+     */
     public Predator(Vector2D spawnPos) {
         super(GameWorld.GetInstance(),
               spawnPos,                    
-              RandFloat() * TwoPi, //start rotation
-              new Vector2D(0, 0), //velocity
-              Prm.VehicleMass, //mass
-              Prm.MaxSteeringForce, //max force
-              Prm.MaxSpeed, //max velocity
-              Prm.MaxTurnRatePerSecond, //max turn rate
-              Prm.VehicleScale);
+              RandFloat() * TwoPi,      // Start rotation
+              new Vector2D(0, 0),       // Velocity
+              Prm.VehicleMass,          // Mass
+              Prm.MaxSteeringForce,     // Max force
+              Prm.MaxSpeed,             // Max velocity
+              Prm.MaxTurnRatePerSecond, // Max turn rate
+              Prm.VehicleScale          // Vehicle size
+        );
         
         Init();
     }
     
+    /**
+     * Initializes the agent.
+     */    
     protected final void Init() {
         this.Steering().FlockingOff();
    
@@ -56,7 +64,7 @@ public class Predator extends Vehicle {
             
         this.Steering().WanderOn();
             
-        this.SetMaxSpeed(70);        
+        this.SetMaxSpeed(70);   
     }
         
 }

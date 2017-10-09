@@ -29,25 +29,33 @@ import static buckland.ch3.common.misc.utils.RandFloat;
 import static buckland.ch3.common.misc.utils.TwoPi;
 
 /**
- * This class implement basic prey as vehicle found in Buckland (2005)
+ * This class implements a basic prey as vehicle found in Buckland (2005)
  * @author Ron Coleman
  */
 public class Prey extends Vehicle {
     
+    /**
+     * Constructor
+     * @param spawnPos Agent's spawn position in the world
+     */
     public Prey(Vector2D spawnPos) {
         super(GameWorld.GetInstance(),
               spawnPos,                    
-              RandFloat() * TwoPi, //start rotation
-              new Vector2D(0, 0), //velocity
-              Prm.VehicleMass, //mass
-              Prm.MaxSteeringForce, //max force
-              Prm.MaxSpeed, //max velocity
-              Prm.MaxTurnRatePerSecond, //max turn rate
-              Prm.VehicleScale);
+              RandFloat() * TwoPi,      // start rotation
+              new Vector2D(0, 0),       // velocity
+              Prm.VehicleMass,          // mass
+              Prm.MaxSteeringForce,     // max force
+              Prm.MaxSpeed,             // max velocity
+              Prm.MaxTurnRatePerSecond, // max turn rate
+              Prm.VehicleScale          // Vehicle size
+        );
         
         Init();
     }
     
+    /**
+     * Initializes the agent.
+     */
     protected final void Init() {
         this.Steering().FlockingOn();
         
