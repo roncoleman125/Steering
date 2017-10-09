@@ -218,8 +218,10 @@ public class SteeringBehavior {
     /**
      * Given a target, this behavior returns a steering force which will
      *  direct the agent towards the target
+     * @param TargetPos Target position to seek.
+     * @return Change in velocity
      */
-    private Vector2D Seek(Vector2D TargetPos) {
+    public Vector2D Seek(Vector2D TargetPos) {
         Vector2D DesiredVelocity = mul(Vec2DNormalize(sub(TargetPos, m_pVehicle.Pos())),
                 m_pVehicle.MaxSpeed());
 
@@ -228,8 +230,10 @@ public class SteeringBehavior {
 
     /**
      *  Does the opposite of Seek
+     * @param TargetPos Target position to flee
+     * @return Change in velocity
      */
-    private Vector2D Flee(Vector2D TargetPos) {
+    public Vector2D Flee(Vector2D TargetPos) {
         //only flee if the target is within 'panic distance'. Work in distance
         //squared space.
  /* const double PanicDistanceSq = 100.0f * 100.0;
@@ -239,10 +243,23 @@ public class SteeringBehavior {
         }
          */
 
-        Vector2D DesiredVelocity = mul(Vec2DNormalize(sub(m_pVehicle.Pos(), TargetPos)),
-                m_pVehicle.MaxSpeed());
-
-        return sub(DesiredVelocity, m_pVehicle.Velocity());
+        Vector2D DeltaPos = sub(m_pVehicle.Pos(), TargetPos);
+        
+        Vector2D Normal = Vec2DNormalize(DeltaPos);
+        
+        double MaxSpeed = m_pVehicle.MaxSpeed();
+        
+        Vector2D DesiredVelocity = mul(Normal, MaxSpeed);
+        
+        Vector2D Acceleration = sub(DesiredVelocity, m_pVehicle.Velocity());
+        
+        return Acceleration;
+        
+//        // Original code from Petr starts below
+//        Vector2D DesiredVelocity = mul(Vec2DNormalize(sub(m_pVehicle.Pos(), TargetPos)),
+//                m_pVehicle.MaxSpeed());
+//
+//        return sub(DesiredVelocity, m_pVehicle.Velocity());
     }
 
     /**
